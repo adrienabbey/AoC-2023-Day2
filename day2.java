@@ -1,6 +1,7 @@
 /* Advent of Code, Day 2: Cube Conundrum
  * Adrien Abbey, Dec. 2023
  * Part 1 solution: 2156
+ * Part 2 solution: 66909
  */
 
 import java.io.File;
@@ -15,18 +16,12 @@ class day2 {
         Scanner inputScanner = new Scanner(inputFile);
 
         // Setup variables:
-        int maxRedCubes = 12;
-        int maxGreenCubes = 13;
-        int maxBlueCubes = 14;
         int totalSum = 0;
 
         // Start parsing the input:
         while (inputScanner.hasNextLine()) {
             // Grab the next line:
             String inputLine = inputScanner.nextLine();
-
-            // Parse the game number:
-            int gameNumber = gameNumParser(inputLine);
 
             // Start splitting the input into usable parts.
             // First, split at ':'. We only want what's after that:
@@ -77,18 +72,11 @@ class day2 {
                 }
             }
 
-            // FIXME:
-            System.out.println(" The input string is: " + inputLine);
-            System.out.println(" The highest counts are: " + highestRedCount + " red, " + highestGreenCount + " green, "
-                    + highestBlueCount + " blue.");
+            // For each game, multiply the highest count of each color:
+            int gamePower = highestBlueCount * highestGreenCount * highestRedCount;
 
-            // If the highest count for each color is less than the max
-            // permitted of each:
-            if (highestRedCount <= maxRedCubes && highestGreenCount <= maxGreenCubes
-                    && highestBlueCount <= maxBlueCubes) {
-                // Then add this game number to the total sum:
-                totalSum += gameNumber;
-            }
+            // Add the game's power result to the running total:
+            totalSum += gamePower;
         }
 
         // Print the result:
@@ -128,10 +116,6 @@ class day2 {
 
         // Convert the integer string into a proper integer:
         int gameNumber = Integer.valueOf(integerString);
-
-        // FIXME:
-        // System.out.println(" The input string is: " + inputString);
-        // System.out.println(" The game number is: " + gameNumber);
 
         // Return that integer:
         return gameNumber;
