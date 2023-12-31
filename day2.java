@@ -1,5 +1,6 @@
 /* Advent of Code, Day 2: Cube Conundrum
  * Adrien Abbey, Dec. 2023
+ * Part 1 solution: 2156
  */
 
 import java.io.File;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 class day2 {
     public static void main(String[] args) throws FileNotFoundException {
         // Load the input file:
-        File inputFile = new File("input.example");
+        File inputFile = new File("input.txt");
         Scanner inputScanner = new Scanner(inputFile);
 
         // Setup variables:
