@@ -77,11 +77,6 @@ class day2 {
                 }
             }
 
-            // FIXME:
-            System.out.println(" The input string is: " + inputLine);
-            System.out.println(" The highest counts are: " + highestRedCount + " red, " + highestGreenCount + " green, "
-                    + highestBlueCount + " blue.");
-
             // If the highest count for each color is less than the max
             // permitted of each:
             if (highestRedCount <= maxRedCubes && highestGreenCount <= maxGreenCubes
@@ -128,10 +123,6 @@ class day2 {
 
         // Convert the integer string into a proper integer:
         int gameNumber = Integer.valueOf(integerString);
-
-        // FIXME:
-        // System.out.println(" The input string is: " + inputString);
-        // System.out.println(" The game number is: " + gameNumber);
 
         // Return that integer:
         return gameNumber;
