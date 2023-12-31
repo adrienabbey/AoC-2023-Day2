@@ -11,22 +11,16 @@ import java.util.Scanner;
 class day2 {
     public static void main(String[] args) throws FileNotFoundException {
         // Load the input file:
-        File inputFile = new File("input.txt");
+        File inputFile = new File("exampleInput.txt");
         Scanner inputScanner = new Scanner(inputFile);
 
         // Setup variables:
-        int maxRedCubes = 12;
-        int maxGreenCubes = 13;
-        int maxBlueCubes = 14;
         int totalSum = 0;
 
         // Start parsing the input:
         while (inputScanner.hasNextLine()) {
             // Grab the next line:
             String inputLine = inputScanner.nextLine();
-
-            // Parse the game number:
-            int gameNumber = gameNumParser(inputLine);
 
             // Start splitting the input into usable parts.
             // First, split at ':'. We only want what's after that:
@@ -77,13 +71,11 @@ class day2 {
                 }
             }
 
-            // If the highest count for each color is less than the max
-            // permitted of each:
-            if (highestRedCount <= maxRedCubes && highestGreenCount <= maxGreenCubes
-                    && highestBlueCount <= maxBlueCubes) {
-                // Then add this game number to the total sum:
-                totalSum += gameNumber;
-            }
+            // For each game, multiply the highest count of each color:
+            int gamePower = highestBlueCount * highestGreenCount * highestRedCount;
+
+            // Add the game's power result to the running total:
+            totalSum += gamePower;
         }
 
         // Print the result:
